@@ -64,6 +64,6 @@ class MyHashMap:
 # MyHashMap object will be instantiated and called as such:
 obj = MyHashMap()
 obj.put("Aa", 32)
-print(obj.get("Ab"))
+print(obj.get("aA"))  # Should have returned -1 as keys are "unique"
 # param_2 = obj.get(key)
 # obj.remove(key)
