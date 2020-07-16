@@ -32,25 +32,38 @@ class MyHashMap:
         """
         Initialize the data structure here.
         """
+        self.l = [[] for _ in range(1000)]
 
     def put(self, key: int, value: int) -> None:
         """
         Value will always be non-negative.
         """
+        i = (sum(map(lambda x: ord(x), key)))
+        i %= 100  # Considering Bucket size as 100
+        self.l[i] = value
 
     def get(self, key: int) -> int:
         """
         Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
         """
+        i = (sum(map(lambda x: ord(x), key)))
+        i %= 100
+        if self.l[i] == []:
+            return -1
+        return self.l[i]
 
     def remove(self, key: int) -> None:
         """
         Removes the mapping of the specified value key if this map contains a mapping for the key
         """
+        i = (sum(map(lambda x: ord(x), key)))
+        i %= 100
+        self.l[i] = []
 
 
 # MyHashMap object will be instantiated and called as such:
 obj = MyHashMap()
-obj.put(key, value)
-param_2 = obj.get(key)
-obj.remove(key)
+obj.put("Aa", 32)
+print(obj.get("Ab"))
+# param_2 = obj.get(key)
+# obj.remove(key)
