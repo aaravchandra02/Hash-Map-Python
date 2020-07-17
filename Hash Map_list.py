@@ -46,6 +46,7 @@ class MyHashMap:
         """
         Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
         """
+        # Insert mechanism for handling same hash for different keys(collision).
         i = (sum(map(lambda x: ord(x), key)))
         i %= 100
         if self.l[i] == []:
